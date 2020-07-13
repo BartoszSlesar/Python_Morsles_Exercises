@@ -1,0 +1,26 @@
+def add(matrix1,matrix2):
+    matrix_result = []
+    for matrix1,matrix2 in zip(matrix1,matrix2):
+        matrix_result.append([x+y for x,y in zip(matrix1,matrix2)])     
+    return matrix_result
+    
+def add(*matrix):
+    matrix_r, *matrix = matrix
+    matrix_result = []
+    matrix_result.append(*matrix_r)
+    for value in zip(matrix):
+        for matrix1,matrix2 in zip(matrix_result,value):
+            matrix_result.append([x+y for x,y in zip(matrix1,matrix2)])     
+    return matrix_result
+    
+    
+    
+def add(*matrix_all):
+    matrix_r, *matrix_rest = matrix_all
+    matrix_result = [element for element in matrix_r]
+    for matrix in matrix_rest:
+        for i,row in enumerate(matrix):
+             for j,value in enumerate(row):
+                matrix_result[i][j] = matrix_result[i][j]+value
+    return matrix_result    
+        
